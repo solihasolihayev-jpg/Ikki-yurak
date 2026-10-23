@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ikki Yurak — Romantik o‘yin</title>
+<style>
+:root{--pink:#ff2f9f;--hot:#ff5bc7;--violet:#7c4dff;--night:#090821;--panel:#17123b;--line:#7547aa;--text:#fff2ff}
+*{box-sizing:border-box}body{margin:0;color:var(--text);font:15px system-ui,Arial;background:radial-gradient(ellipse at 50% 0,#65206d 0,#17113e 36%,#07071b 78%);min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;color:white;border:1px solid #ff83d4;background:linear-gradient(135deg,#ff238f,#9c2dcb);border-radius:12px;padding:9px 13px;box-shadow:0 0 15px #ff2f9f55}button:hover{filter:brightness(1.15);transform:translateY(-1px)}button:active{transform:scale(.98)}
+header{padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#0a0927d9;border-bottom:1px solid #a54fce;position:sticky;top:0;z-index:4;backdrop-filter:blur(12px)}
+.logo{font-size:clamp(24px,4vw,38px);font-weight:900;font-style:italic;color:#ff7bd8;text-shadow:0 0 18px #ff1493}.profiles{display:flex;gap:10px;align-items:center}.person{display:flex;gap:8px;align-items:center;background:#20133e;border:1px solid #9b55b5;border-radius:25px;padding:7px 12px}.face{font-size:28px;background:linear-gradient(135deg,#ffd1ec,#a25aff);border-radius:50%;padding:5px}.hearts{color:#ff5db7;font-weight:bold}
+.layout{display:grid;grid-template-columns:190px minmax(0,1fr) 245px;gap:12px;padding:12px;max-width:1600px;margin:auto}.panel{background:linear-gradient(150deg,#1b1642ed,#100c2beb);border:1px solid #8d4ab6;border-radius:18px;box-shadow:0 0 22px #e629a322;padding:13px;min-width:0}.nav{display:flex;flex-direction:column;gap:7px}.nav button{background:#161238;border-color:#4d367b;text-align:left;box-shadow:none}.nav button.active{background:linear-gradient(90deg,#f21b91,#8533ca);border-color:#ffb1e9}.tagline{font-style:italic;color:#ff8bdc;margin-top:18px}.hero{display:grid;grid-template-columns:1fr 1.2fr;gap:14px;align-items:center;min-height:240px;background:radial-gradient(circle at 70% 20%,#ff6eb333,transparent 35%),linear-gradient(120deg,#35134f,#160f38);overflow:hidden}.hero h1{font-size:clamp(23px,3vw,39px);margin:0 0 8px;color:#ff8bd8;text-shadow:0 0 12px #ff168c}.couple{font-size:clamp(70px,12vw,145px);text-align:center;filter:drop-shadow(0 0 20px #ff399d);animation:float 3s ease-in-out infinite}.lovefloat{position:absolute;animation:rise 2.8s ease-in infinite;pointer-events:none}.heroart{position:relative}.section-title{font-size:20px;color:#ff8edc;margin:16px 0 10px}.minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.game{background:linear-gradient(145deg,#fff0ff,#ffc9e8);color:#42164e;border-radius:14px;padding:10px;min-height:160px;border:2px solid #ff8cd7;display:flex;flex-direction:column;gap:7px;box-shadow:0 0 12px #ff4ca544}.game .emoji{font-size:36px}.game h3{font-size:14px;margin:0}.game p{font-size:12px;margin:0;flex:1}.game button{font-size:12px;padding:7px;color:white}.rightcol{display:flex;flex-direction:column;gap:12px}.chatlog{height:185px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:5px}.bubble{background:#2b1b4c;border:1px solid #64418b;border-radius:12px;padding:8px;font-size:13px}.bubble.me{align-self:flex-end;background:#8e216f}.muted{font-size:12px;color:#c6addd}.sendrow{display:flex;gap:5px;margin-top:8px}.sendrow input{min-width:0;flex:1;background:#0b0927;color:white;border:1px solid #77529c;border-radius:10px;padding:9px}.stickers{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.sticker{font-size:28px;padding:7px;background:#241443;border:1px solid #70408d;border-radius:12px;text-align:center;cursor:pointer}.sticker:hover{background:#69225d}.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.media-grid div{background:linear-gradient(135deg,#fd8bc9,#6333a4);border-radius:9px;min-height:58px;display:grid;place-items:center;font-size:25px}.meter{height:12px;background:#100b2d;border:1px solid #77529c;border-radius:20px;overflow:hidden}.meter span{display:block;height:100%;width:67%;background:linear-gradient(90deg,#ff208e,#ff8fe0);transition:width .3s}.progressrow{display:flex;justify-content:space-between;font-size:12px;margin:8px 0}.bottomnav{display:flex;gap:8px;justify-content:space-around;flex-wrap:wrap;margin-top:12px}.bottomnav button{background:#151033;border-color:#51327b;box-shadow:none}.view{display:none}.view.active{display:block}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#321148;border:1px solid #ff78ce;border-radius:18px;padding:12px 18px;box-shadow:0 0 25px #ff2499;z-index:10;display:none}.modal{position:fixed;inset:0;background:#050313d9;z-index:8;display:none;align-items:center;justify-content:center;padding:15px}.modalbox{max-width:600px;width:100%;background:#1b1240;border:1px solid #ff7bd5;border-radius:20px;padding:20px;box-shadow:0 0 40px #f29}.modalbox h2{color:#ff8edb}.quizopt{display:block;width:100%;margin:8px 0;text-align:left;background:#352052}.puzzle{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;max-width:300px;margin:15px auto}.puzzle button{font-size:32px;min-height:80px}.footer{text-align:center;color:#c7a8d9;font-size:12px;padding:18px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}@keyframes rise{0%{opacity:0;transform:translateY(25px) scale(.7)}30%{opacity:1}100%{opacity:0;transform:translateY(-100px) scale(1.2)}}
+@media(max-width:1050px){.layout{grid-template-columns:150px minmax(0,1fr)}.rightcol{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.minis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){header{padding:10px}.layout{display:flex;flex-direction:column;padding:8px}.nav{display:grid;grid-template-columns:repeat(3,1fr)}.nav button{text-align:center;padding:8px 4px;font-size:12px}.hero{grid-template-columns:1fr;text-align:center}.couple{font-size:85px}.minis{grid-template-columns:repeat(2,minmax(0,1fr))}.rightcol{display:flex}.profiles{width:100%;justify-content:center}.person{font-size:12px}.game{min-height:175px}}
+</style>
+</head>
+<body>
+<header><div class="logo">💞 Ikki Yurak</div><div class="profiles"><div class="person"><span class="face">👩🏻</span><div><b id="nameA">Soliha</b><div class="hearts">💗 <span id="scoreA">4820</span> · Lv.<span id="levelA">5</span></div></div></div><div style="font-size:24px">💘</div><div class="person"><span class="face">👨🏻</span><div><b id="nameB">Javohir</b><div class="hearts">💗 <span id="scoreB">4570</span> · Lv.5</div></div></div><div class="muted">🟢 <span id="connectionStatus">Serverga ulanmagan</span><br>
+<label style="display:inline-flex;gap:5px;align-items:center;margin-top:5px">Xona kodi <input id="roomCode" value="LOVE2026" maxlength="16" style="width:105px;background:#0b0927;color:white;border:1px solid #77529c;border-radius:8px;padding:5px"></label>
+<button onclick="joinRoom()" style="padding:6px 9px;margin-left:4px">Ulanish</button></div></div></header>
+<div class="layout">
+<aside class="panel"><nav class="nav" id="nav"><button class="active" data-view="home">🏠 Bosh sahifa</button><button data-view="games">🎮 O‘yinlar</button><button data-view="chatview">💬 Chat</button><button data-view="media">🖼 Rasm va video</button><button data-view="audio">🎵 Audio</button><button data-view="stickerview">💞 Stikerlar</button><button data-view="gifts">🎁 Sovg‘alar</button><button data-view="profile">👤 Profil</button><button data-view="settings">⚙️ Sozlamalar</button></nav><div class="tagline">Sen bilan har lahza muhim… 💗</div><div style="font-size:35px;text-align:center;margin-top:10px">🌹💐🌹</div><div class="panel" style="padding:10px;margin-top:12px"><b>💗 Kayfiyat</b><div class="stickers" style="margin-top:8px"><div class="sticker" onclick="sendSticker('💋')">💋</div><div class="sticker" onclick="sendSticker('🫂')">🫂</div><div class="sticker" onclick="sendSticker('🌹')">🌹</div><div class="sticker" onclick="sendSticker('💞')">💞</div></div></div></aside>
+<main>
+<section id="home" class="view active">
+<div class="panel hero"><div><h1>Bizning sevgi hikoyamiz</h1><p>Har kuni birga yangi xotira yarating. 💕</p><button onclick="openGame(0)">🎮 Birga o‘ynash</button><div class="progressrow"><span>💗 Mehr ballari</span><b><span id="scoreMain">6730</span> / 10000</b></div><div class="meter"><span id="meter"></span></div><p class="muted">Birgalikdagi kichik lahzalar katta xotiraga aylanadi.</p></div><div class="heroart"><div class="couple" id="couple">🧑🏻‍❤️‍💋‍👩🏻</div><div style="text-align:center;color:#ff9fdf"><span id="heroNameA">Soliha</span> ♥ <span id="heroNameB">Javohir</span></div></div></div>
+<h2 class="section-title">💗 15 ta mini-o‘yin — har biri yangi sarguzasht!</h2><div class="minis" id="games"></div>
+<div class="bottomnav"><button onclick="navigate('chatview')">💬 Chat</button><button onclick="navigate('media')">🖼 Media</button><button onclick="navigate('stickerview')">💞 Stikerlar</button><button onclick="navigate('gifts')">🎁 Sovg‘alar</button><button onclick="navigate('profile')">👤 Profil</button></div>
+</section>
+<section id="games" class="view"><div class="panel"><h2>🎮 Bizning o‘yinlar</h2><p>Har bir o‘yin boshqa kayfiyat, topshiriq va kichik mukofot bilan.</p><div class="minis" id="games2"></div></div></section>
+<section id="chatview" class="view"><div class="panel"><h2>💬 Jonli chat</h2><p class="muted">Bu prototipda chat shu qurilmada ishlaydi.</p><div class="chatlog" id="chatbig"></div><div class="sendrow"><input id="chatinput2" placeholder="Mehrli xabar yozing…"><button onclick="sendChat('chatinput2')">Yuborish 💌</button></div><div class="stickers" style="margin-top:12px"><div class="sticker" onclick="sendSticker('💋')">💋</div><div class="sticker" onclick="sendSticker('🫂')">🫂</div><div class="sticker" onclick="sendSticker('🌹')">🌹</div><div class="sticker" onclick="sendSticker('💖')">💖</div></div></div></section>
+<section id="media" class="view"><div class="panel"><h2>🖼 Bizning media xotiralarimiz</h2><p>Demo galereya — haqiqiy foto yuklash funksiyasi quyidagi tugmada.</p><div class="media-grid" id="gallery"><div>🌆</div><div>💑</div><div>🌹</div><div>🌙</div><div>💌</div><div>🎆</div></div><p><input type="file" id="upload" accept="image/*,video/*" multiple></p><div class="muted">Yuklangan fayllar faqat shu sahifada ko‘rinadi; serverga saqlanmaydi.</div></div></section>
+<section id="audio" class="view"><div class="panel"><h2>🎵 Muhabbat musiqasi</h2><p>Birgalikdagi lahzalar uchun mayin fon ohangi.</p><button onclick="toggleMusic()" id="musicBtn">▶ Ohangni yoqish</button><p class="muted">Brauzer sintez qiladigan oddiy demo ohang; musiqa fayli emas.</p></div></section>
+<section id="stickerview" class="view"><div class="panel"><h2>💞 Jonli romantik stikerlar</h2><p>Stiker ustiga bosing — animatsiya va chatga yuborish.</p><div class="stickers" id="stickerbank"></div></div></section>
+<section id="gifts" class="view"><div class="panel"><h2>🎁 Yurakdan sovg‘alar</h2><div class="minis" id="giftbank"></div></div></section>
+<section id="profile" class="view"><div class="panel"><h2>👩🏻‍❤️‍👨🏻 Juftlik profili</h2><div class="person"><span class="face">👩🏻</span><div><b id="profileNameA">Soliha</b><div class="muted">Mehribonlik darajasi · Lv.5</div></div></div><br><div class="person"><span class="face">👨🏻</span><div><b id="profileNameB">Javohir</b><div class="muted">Romantik sherik · Lv.5</div></div></div><p>Birgalikdagi ball: <b id="profileScore">6730</b></p><button onclick="reward(50,'Profilni birga ko‘rganingiz uchun')">💗 Bir-biringizga mehr yuboring</button></div></section>
+<section id="settings" class="view"><div class="panel"><h2>⚙️ Sozlamalar</h2><label><input type="checkbox" checked id="animToggle"> Romantik animatsiyalar</label><p><label>Avatar juftligi: <select id="avatarSelect"><option value="🧑🏻‍❤️‍💋‍👩🏻">Romantik o‘pich</option><option value="🫂💗🫂">Quchoqlash</option><option value="👩🏻‍❤️‍👨🏻">Qo‘l ushlash</option><option value="💑🌹">Gul bilan</option></select></label></p><p><label>1-juftlik ismi: <input id="myName" value="Soliha" maxlength="24"></label></p><p><label>2-juftlik ismi: <input id="partnerName" value="Javohir" maxlength="24"></label></p><button onclick="saveSettings()">Ismlarni saqlash 💗</button><p class="muted">Bu demo sozlamalari shu sahifa ishlayotgan paytda amal qiladi.</p></div></section>
+</main>
+<aside class="rightcol">
+<div class="panel"><h3>💬 Jonli chat <span style="color:#58ffc0;font-size:12px">● Online demo</span></h3><div class="chatlog" id="chatmini"><div class="bubble"><b>Soliha</b><br>Sen bilan har daqiqam go‘zal! 💗</div><div class="bubble"><b>Javohir</b><br>Meni ham shunday his qildirayapsan 💞</div><div class="bubble"><b>Soliha</b><br>Bu o‘yin juda yoqimli! 💘</div></div><div class="sendrow"><input id="chatinput" placeholder="Xabar yozing…"><button onclick="sendChat('chatinput')">➤</button></div></div>
+<div class="panel"><h3>💞 Stikerlar</h3><div class="stickers" id="quickstickers"></div></div>
+<div class="panel"><h3>🖼 Media</h3><div class="media-grid"><div>💏</div><div>🌹</div><div>🌆</div><div>💌</div><div>🌙</div><div>🎆</div></div><button style="width:100%;margin-top:8px" onclick="navigate('media')">Fayl tanlash</button></div>
+<div class="panel"><h3>💗 Tavsiya</h3><div class="bubble" onclick="navigate('stickerview')">💋 O‘pichlar · 100+ stiker</div><div class="bubble" onclick="navigate('stickerview')">🫂 Quchoqlash · 50+ stiker</div><div class="bubble" onclick="navigate('gifts')">🌹 Gullar · 40+ stiker</div><div class="bubble" onclick="openGame(1)">🧩 Yurak pazli</div></div>
+</aside>
+</div>
+<div class="footer">💗 Ikki Yurak · Sevgi — birga bo‘lish, har doim. <br>Interaktiv demo. Haqiqiy internet orqali ikki qurilma sinxronizatsiyasi uchun server/backend kerak bo‘ladi.</div>
+<div class="toast" id="toast"></div><div class="modal" id="modal"><div class="modalbox"><div style="display:flex;justify-content:space-between;gap:12px"><h2 id="modalTitle">O‘yin</h2><button onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+let socket = null;
+let currentRoom = "LOVE2026";
+function setupRealtime(){
+  if(typeof io !== "function"){ const s=document.getElementById("connectionStatus"); if(s)s.textContent="Server ishga tushirilmagan"; return; }
+  socket=io();
+  socket.on("connect",()=>{const s=document.getElementById("connectionStatus");if(s)s.textContent="Ulandi";joinRoom();});
+  socket.on("disconnect",()=>{const s=document.getElementById("connectionStatus");if(s)s.textContent="Aloqa uzildi";});
+  socket.on("chat-message",m=>addChat(m.name,m.text,m.kind==="sticker"?"":""));
+  socket.on("sticker-message",m=>{addChat(m.name,m.sticker,"");floatHeart(m.sticker);});
+  socket.on("room-state",state=>{const s=document.getElementById("connectionStatus");if(s)s.textContent="Xonada "+state.count+" kishi"; if(state.avatar)document.getElementById("couple").textContent=state.avatar;});
+  socket.on("avatar-change",data=>{document.getElementById("couple").textContent=data.avatar;toast(data.name+" avatarni o‘zgartirdi 💗");});
+}
+function joinRoom(){
+  const input=document.getElementById("roomCode");
+  currentRoom=(input?.value||"LOVE2026").trim().toUpperCase().replace(/[^A-Z0-9-]/g,"").slice(0,16)||"LOVE2026";
+  if(input)input.value=currentRoom;
+  if(socket&&socket.connected){socket.emit("join-room",{room:currentRoom,name:document.getElementById("myName")?.value||"Soliha",avatar:document.getElementById("avatarSelect")?.value||"🧑🏻‍❤️‍💋‍👩🏻"});toast("Xonaga ulanish so‘rovi yuborildi 💞");}
+  else toast("Avval serverni ishga tushiring. README faylida ko‘rsatma bor.");
+}
+const gameData=[
+['💞','Sevgi sarguzashti','Sehrli bog‘ni kashf eting va yashirin sovg‘ani toping!'],
+['🧩','Yurak pazli','Yurak bo‘laklarini birga yig‘ing!'],
+['🎨','Rasm chizish','Tasavvuringizdagi romantik rasmni yarating.'],
+['🍓','Taom pishirish','Birga mazali taom tanlang!'],
+['🎵','Musiqa va ritm','Ritmga mos yuraklarni bosing.'],
+['🌹','Romantik topshiriqlar','Mehrli vazifalarni bajaring.'],
+['📸','Xotiralar sandig‘i','Eng chiroyli xotiralarni saqlang.'],
+['🏡','Orzu uyimiz','Virtual orzu uyingizni bezang.'],
+['✈️','Sayohat xaritasi','Birga yangi joylarni tanlang.'],
+['🌅','Bizning kelajagimiz','Kelajakdagi orzularingizni bo‘lishing.'],
+['🎬','Kino kechasi','Birga film kayfiyatini tanlang.'],
+['💌','Maxsus xatlar','Sevgi maktubini yozing.'],
+['🔗','Vazifalar zanjiri','Bir-biringizga vazifalar yuboring.'],
+['🎯','Sevgi sinovlari','Nishonga uring va ball oling!'],
+['🎤','Ovoz va video','Ovozli yoki video xabar g‘oyalarini sinang.']];
+let score=6730, audioCtx=null, oscillator=null;
+function toast(t){let el=document.getElementById('toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',2300)}
+function updateScore(n){score+=n;['scoreMain','profileScore'].forEach(id=>document.getElementById(id).textContent=score);document.getElementById('meter').style.width=Math.min(100,score/10000*100)+'%';document.getElementById('scoreA').textContent=4820+Math.floor((score-6730)/2);document.getElementById('scoreB').textContent=4570+Math.floor((score-6730)/2)}
+function reward(n,msg){updateScore(n);toast('💗 +'+n+' ball — '+msg)}
+function navigate(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===v));document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===v));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('#nav button').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.view)));
+function makeGames(target){let el=document.getElementById(target);el.innerHTML='';gameData.forEach((g,i)=>{let card=document.createElement('div');card.className='game';card.innerHTML=`<div class="emoji">${g[0]}</div><h3>${i+1}. ${g[1]}</h3><p>${g[2]}</p><button onclick="openGame(${i})">Boshlash 💗</button>`;el.appendChild(card)})}
+makeGames('games');makeGames('games2');
+const stickers=['💋','🫂','💏','💑','🌹','🧸','💝','💌','💕','😘','🌷','❤️‍🔥','😍','💐','💞','🥰','🩷','💘','🦋','✨','🌙','💍','🫶','💓'];
+function fillStickers(id){let e=document.getElementById(id);e.innerHTML='';stickers.forEach(s=>{let d=document.createElement('div');d.className='sticker';d.textContent=s;d.title='Yuborish';d.onclick=()=>sendSticker(s);e.appendChild(d)})}
+fillStickers('quickstickers');fillStickers('stickerbank');
+function sendSticker(s){const name=document.getElementById('myName').value||'Soliha';addChat(name,s,'me');if(socket&&socket.connected)socket.emit('sticker-message',{room:currentRoom,name,sticker:s});floatHeart(s);reward(5,'stiker yuborildi');}
+function addChat(name,msg,cls=''){['chatmini','chatbig'].forEach(id=>{let log=document.getElementById(id);if(!log)return;let d=document.createElement('div');d.className='bubble '+cls;d.innerHTML='<b>'+escapeHtml(name)+'</b><br>'+escapeHtml(msg);log.appendChild(d);log.scrollTop=log.scrollHeight})}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function sendChat(id){let inp=document.getElementById(id),v=inp.value.trim();if(!v)return;const name=document.getElementById('myName').value||'Soliha';addChat(name,v,'me');if(socket&&socket.connected)socket.emit('chat-message',{room:currentRoom,name,text:v});inp.value='';reward(3,'mehrli xabar');}
+['chatinput','chatinput2'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')sendChat(id)}));
+function floatHeart(s='💗'){if(!document.getElementById('animToggle').checked)return;let d=document.createElement('div');d.className='lovefloat';d.textContent=s;d.style.left=(10+Math.random()*80)+'%';d.style.bottom='10px';d.style.fontSize=(25+Math.random()*35)+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),3000)}
+setInterval(()=>{if(document.getElementById('animToggle')?.checked&&Math.random()>.45)floatHeart(['💗','💕','✨','💖'][Math.floor(Math.random()*4)])},2100);
+function openGame(i){let g=gameData[i],body=document.getElementById('modalBody');document.getElementById('modalTitle').textContent=g[0]+' '+g[1];let content='';
+if(i===0)content=`<p>Sehrli bog‘dagi sovg‘ani toping!</p><div class="puzzle">${['🌷','🦋','🎁','🌹','💎','🌸'].map((x,j)=>`<button onclick="gardenPick(${j})">${x}</button>`).join('')}</div><p id="gameMsg">Bir sovg‘ani tanlang.</p>`;
+else if(i===1)content=`<p>Yurakni yig‘ish uchun to‘g‘ri bo‘lakni tanlang:</p><div class="puzzle">${['💗','💔','💖','💕','❤️','💘'].map((x,j)=>`<button onclick="puzzlePick(${j})">${x}</button>`).join('')}</div><p id="gameMsg">💗 ni tanlang!</p>`;
+else if(i===2)content=`<p>Romantik rasmingizni emoji bilan yarating:</p><div class="stickers">${['🌙','🌹','💑','🏰','✨','💗','🌆','🦋'].map(x=>`<div class="sticker" onclick="canvasAdd('${x}')">${x}</div>`).join('')}</div><div id="canvas" style="font-size:36px;min-height:60px;padding:10px;text-align:center">🖼️</div><button onclick="reward(30,'rasm yaratildi');closeModal()">Rasmni yakunlash</button>`;
+else if(i===3)content=`<p>Birgalikdagi menyuni tanlang:</p>${['🍓 Shokoladli qulupnay','🍝 Romantik pasta','🧁 Shirin kapkeyk'].map(x=>`<button class="quizopt" onclick="gameWin('${x}')">${x}</button>`).join('')}`;
+else if(i===4||i===13)content=`<p>Yuraklar paydo bo‘lganda tez bosing!</p><button style="font-size:45px;width:100%" onclick="gameWin('Ritmni ushladingiz!')">💗</button><p>Birga o‘ynash — birga kulish!</p>`;
+else if(i===5||i===12)content=`<p>Bugungi mehrli vazifani tanlang:</p>${['Bir-biringizga 3 ta yaxshi sifat ayting 💗','Birga xotira yozing 💌','Sherigingizga virtual quchoq yuboring 🫂'].map(x=>`<button class="quizopt" onclick="gameWin('${x}')">${x}</button>`).join('')}`;
+else if(i===6)content=`<p>Xotiralar sandig‘iga bir so‘z qoldiring.</p><input id="memory" placeholder="Masalan: ilk uchrashuv" style="width:100%;padding:10px;border-radius:9px"><button onclick="gameWin(document.getElementById('memory').value||'Go‘zal xotira')">Xotirani saqlash</button>`;
+else if(i===7)content=`<p>Orzu uyingizga bezak qo‘shing:</p><div class="stickers">${['🛋️','🌹','🕯️','🪟','🧸','🖼️'].map(x=>`<div class="sticker" onclick="canvasAdd('${x}')">${x}</div>`).join('')}</div><div id="canvas" style="font-size:30px;min-height:55px"></div><button onclick="gameWin('Orzu uy bezatildi')">Tayyor</button>`;
+else if(i===8)content=`<p>Keyingi romantik sayohatingiz qayerga?</p>${['🗼 Parij','🏝️ Maldiv orollari','🏔️ Tog‘lar','🌸 Yapon bahori'].map(x=>`<button class="quizopt" onclick="gameWin(x)">${x}</button>`).join('')}`;
+else if(i===9)content=`<p>Kelajakdagi orzuingizni yozing:</p><input id="dream" placeholder="Birga ..."><button onclick="gameWin(document.getElementById('dream').value||'Birga baxtli bo‘lish')">Orzuni saqlash</button>`;
+else if(i===10)content=`<p>Kino oqshomi kayfiyatini tanlang:</p>${['😂 Komediya','💖 Romantika','🪄 Fantastika'].map(x=>`<button class="quizopt" onclick="gameWin(x)">${x}</button>`).join('')}`;
+else if(i===11)content=`<p>Sevgi maktubingizni yozing:</p><textarea id="letter" rows="4" placeholder="Azizim, sen bilan..." style="width:100%;border-radius:10px;padding:10px"></textarea><button onclick="gameWin(document.getElementById('letter').value||'Sen men uchun qadrlisan 💗')">Maktubni yuborish</button>`;
+else content=`<p>Ovoz/video xabar g‘oyasi tayyor. Haqiqiy qo‘ng‘iroq uchun alohida server va media xizmati kerak.</p><button onclick="gameWin('Siz bir-biringizga mehr yubordingiz 💞')">💗 Mehr yuborish</button>`;
+body.innerHTML=content;document.getElementById('modal').style.display='flex'}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function gameWin(msg){reward(25,'o‘yin yakunlandi');document.getElementById('modalBody').innerHTML=`<div style="text-align:center;font-size:40px">💖✨💖</div><h3>Barakalla!</h3><p>${escapeHtml(msg)}</p><p>+25 mehr ballari</p><button onclick="closeModal()">Davom etish</button>`;addChat('Ikki Yurak','O‘yin yakunlandi: '+msg)}
+function gardenPick(j){if(j===2||j===4)gameWin('Yashirin sovg‘a topildi! 🎁');else{let m=document.getElementById('gameMsg');if(m)m.textContent='Yana urinib ko‘ring — sovg‘a shu bog‘da! 🌸'}}
+function puzzlePick(j){if([0,2,3,4,5].includes(j))gameWin('Yurak bo‘laklari birlashdi! 💗');else document.getElementById('gameMsg').textContent='Yana bir bo‘lakni sinab ko‘ring!'}
+function canvasAdd(x){let c=document.getElementById('canvas');if(c)c.textContent+=x}
+const gifts=[['🌹','Atirgul',10],['🧸','Yumshoq ayiq',25],['💐','Guldasta',40],['💍','Va’da uzugi',100],['🍫','Shokolad',15],['💌','Sevgi maktubi',20]];
+document.getElementById('giftbank').innerHTML=gifts.map(g=>`<div class="game"><div class="emoji">${g[0]}</div><h3>${g[1]}</h3><p>${g[2]} mehr balli</p><button onclick="giftSend('${g[0]}','${g[1]}',${g[2]})">Sovg‘a yuborish</button></div>`).join('');
+function giftSend(e,n,c){addChat('Soliha','Javohirga sovg‘a: '+e+' '+n,'me');reward(5,n+' yuborildi');floatHeart(e)}
+document.getElementById('upload').addEventListener('change',e=>{for(const f of e.target.files){let url=URL.createObjectURL(f),el=document.createElement(f.type.startsWith('video')?'video':'img');el.src=url;el.style.width='100%';el.style.height='100%';el.style.objectFit='cover';el.controls=f.type.startsWith('video');let box=document.createElement('div');box.style.overflow='hidden';box.appendChild(el);document.getElementById('gallery').prepend(box)}});
+function saveSettings(){
+const a=(document.getElementById('myName').value.trim()||'Soliha').slice(0,24);
+const b=(document.getElementById('partnerName').value.trim()||'Javohir').slice(0,24);
+document.getElementById('myName').value=a;
+document.getElementById('partnerName').value=b;
+['nameA','heroNameA','profileNameA'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=a});
+['nameB','heroNameB','profileNameB'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=b});
+document.getElementById('couple').textContent=document.getElementById('avatarSelect').value;
+if(socket&&socket.connected)socket.emit('avatar-change',{room:currentRoom,name:a,avatar:document.getElementById('avatarSelect').value});
+if(socket&&socket.connected)socket.emit('join-room',{room:currentRoom,name:a,avatar:document.getElementById('avatarSelect').value});
+toast('Juftlik ismlari saqlandi 💗');
+}
+function toggleMusic(){if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)();oscillator=audioCtx.createOscillator();let gain=audioCtx.createGain();oscillator.type='sine';oscillator.frequency.value=261.63;gain.gain.value=.025;oscillator.connect(gain);gain.connect(audioCtx.destination);oscillator.start();document.getElementById('musicBtn').textContent='Ⅱ Ohangni o‘chirish'}else{audioCtx.close();audioCtx=null;document.getElementById('musicBtn').textContent='▶ Ohangni yoqish'}}
+setupRealtime();
+</script>
+</body></html>
